@@ -16,7 +16,7 @@ namespace TPHMig
         public DbSet<Warrior> Warriors { get; set; }
 
         public DbSet<Hero> Heroes { get; set; }
-       
+      
         public CharDbContext()
         {
             
