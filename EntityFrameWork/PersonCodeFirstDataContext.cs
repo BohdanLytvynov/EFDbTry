@@ -45,10 +45,10 @@ namespace EntityFrameWork
                 .WithOne(l => l.Person).HasForeignKey(fk => fk.PersonId);
                 
             modelBuilder.Entity<Patient_Doctor>().HasOne(p=> p.Patient).WithMany(p=> p.Patient_Doctors)
-                .HasForeignKey(fk => fk.PatientId);
+                .HasForeignKey(fk => fk.PatientId).OnDelete(DeleteBehavior.ClientSetNull);
 
             modelBuilder.Entity<Patient_Doctor>().HasOne(d => d.Doctor).WithMany(d => d.Patient_Doctors)
-                .HasForeignKey(fk=> fk.DoctorId);
+                .HasForeignKey(fk=> fk.DoctorId).OnDelete(DeleteBehavior.ClientSetNull);
 
             base.OnModelCreating(modelBuilder);
         }

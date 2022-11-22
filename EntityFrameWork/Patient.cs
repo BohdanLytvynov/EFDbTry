@@ -11,10 +11,7 @@ namespace EntityFrameWork
     public class Patient : Person
     {
         #region properties
-        [Key]
-        [Required]
-        [Column("PatId")]
-        public override Guid PrimKey { get; set; }
+       
 
         public string Diagnosis { get; set; }
 
