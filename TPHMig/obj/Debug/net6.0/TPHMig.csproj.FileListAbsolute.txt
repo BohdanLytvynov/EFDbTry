@@ -1,0 +1,14 @@
+D:\C# Projects\EntityFrameWork\EFDbTry\TPHMig\bin\Debug\net6.0\TPHMig.deps.json
+D:\C# Projects\EntityFrameWork\EFDbTry\TPHMig\bin\Debug\net6.0\TPHMig.runtimeconfig.json
+D:\C# Projects\EntityFrameWork\EFDbTry\TPHMig\bin\Debug\net6.0\TPHMig.dll
+D:\C# Projects\EntityFrameWork\EFDbTry\TPHMig\bin\Debug\net6.0\TPHMig.pdb
+D:\C# Projects\EntityFrameWork\EFDbTry\TPHMig\obj\Debug\net6.0\TPHMig.csproj.AssemblyReference.cache
+D:\C# Projects\EntityFrameWork\EFDbTry\TPHMig\obj\Debug\net6.0\TPHMig.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\EntityFrameWork\EFDbTry\TPHMig\obj\Debug\net6.0\TPHMig.AssemblyInfoInputs.cache
+D:\C# Projects\EntityFrameWork\EFDbTry\TPHMig\obj\Debug\net6.0\TPHMig.AssemblyInfo.cs
+D:\C# Projects\EntityFrameWork\EFDbTry\TPHMig\obj\Debug\net6.0\TPHMig.csproj.CoreCompileInputs.cache
+D:\C# Projects\EntityFrameWork\EFDbTry\TPHMig\obj\Debug\net6.0\TPHMig.dll
+D:\C# Projects\EntityFrameWork\EFDbTry\TPHMig\obj\Debug\net6.0\refint\TPHMig.dll
+D:\C# Projects\EntityFrameWork\EFDbTry\TPHMig\obj\Debug\net6.0\TPHMig.pdb
+D:\C# Projects\EntityFrameWork\EFDbTry\TPHMig\obj\Debug\net6.0\TPHMig.genruntimeconfig.cache
+D:\C# Projects\EntityFrameWork\EFDbTry\TPHMig\obj\Debug\net6.0\ref\TPHMig.dll

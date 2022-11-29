@@ -4,6 +4,7 @@ using EntityFrameWork;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
+using TPHMig;
 
 Console.WriteLine("Hello, Entity Framework!");
 
@@ -53,66 +54,72 @@ string codeFirst = "Data Source=(localdb)\\MSSQLLOcalDb;Initial Catalog=CodeFirs
 
 #region Code First
 
-var op2 = CreateOptions<PersonCodeFirstDataContext>(codeFirst);
+//var op2 = CreateOptions<PersonCodeFirstDataContext>(codeFirst);
 
-PersonCodeFirstDataContext dbCd = new PersonCodeFirstDataContext(op2.Options, true);
+//PersonCodeFirstDataContext dbCd = new PersonCodeFirstDataContext(op2.Options, true);
 
-Patient p = new Patient(Guid.NewGuid(), "Пациент1", "Пациент1", 23, new Adress(Guid.NewGuid(), "Ukraine", "Dnepr"),
-   new List<AddInfo>() {new AddInfo(Guid.NewGuid(), "Записка пациента номер 1"),
-       new AddInfo(Guid.NewGuid(), "Записка пациента номер 2")}, "Пневмония");
+//Patient p = new Patient(Guid.NewGuid(), "Пациент1", "Пациент1", 23, new Adress(Guid.NewGuid(), "Ukraine", "Dnepr"),
+//   new List<AddInfo>() {new AddInfo(Guid.NewGuid(), "Записка пациента номер 1"),
+//       new AddInfo(Guid.NewGuid(), "Записка пациента номер 2")}, "Пневмония");
 
-Doctor d = new Doctor(Guid.NewGuid(), "Доктор", "Доктор1", 23, new Adress(Guid.NewGuid(), "Ukraine", "Dnepr"),
-   new List<AddInfo>() {new AddInfo(Guid.NewGuid(), "Записка номер 1"),
-       new AddInfo(Guid.NewGuid(), "Записка номер 2")}, "Терапевт");
+//Doctor d = new Doctor(Guid.NewGuid(), "Доктор", "Доктор1", 23, new Adress(Guid.NewGuid(), "Ukraine", "Dnepr"),
+//   new List<AddInfo>() {new AddInfo(Guid.NewGuid(), "Записка номер 1"),
+//       new AddInfo(Guid.NewGuid(), "Записка номер 2")}, "Терапевт");
 
-p.Patient_Doctors.Add(new Patient_Doctor(p.PrimKey, p, d.PrimKey, d));
+//p.Patient_Doctors.Add(new Patient_Doctor(p.PrimKey, p, d.PrimKey, d));
 
-var results = new List<ValidationResult>();
-var context = new ValidationContext(p);
-if (!Validator.TryValidateObject(p, context, results, true))
-{
-    foreach (var error in results)
-    {
-        Console.WriteLine(error.ErrorMessage);
-    }
-}
-else
-{
-    Console.WriteLine($"Объект User успешно создан. Name: {p.Name}");
-
-    dbCd.Persons.Add(p);
-
-    dbCd.SaveChanges();
-}
-
-
-//var f = (from p in dbCd.Persons where p is Patient select p)
-//    .Include(p => p.ActualAdress)
-//    .Include(p => p.AddInfoList)
-//    .Include(p => (p as Patient).Patient_Doctors).Include(p=> (p as Patient)).ToList();
-
-//foreach (var item in f)
+//var results = new List<ValidationResult>();
+//var context = new ValidationContext(p);
+//if (!Validator.TryValidateObject(p, context, results, true))
 //{
-//    Console.WriteLine(item as Patient);
+//    foreach (var error in results)
+//    {
+//        Console.WriteLine(error.ErrorMessage);
+//    }
+//}
+//else
+//{
+//    Console.WriteLine($"Объект User успешно создан. Name: {p.Name}");
+
+//    dbCd.Persons.Add(p);
+
+//    dbCd.SaveChanges();
 //}
 
-//var d = (from p in dbCd.Persons where p is Doctor select p)
-//    .Include(p => p.ActualAdress).Include(p => p.AddInfoList).Include(p => (p as Doctor).Patient_Doctors).ToList();
 
-//foreach (var item in d)
+////var f = (from p in dbCd.Persons where p is Patient select p)
+////    .Include(p => p.ActualAdress)
+////    .Include(p => p.AddInfoList)
+////    .Include(p => (p as Patient).Patient_Doctors).Include(p=> (p as Patient)).ToList();
+
+////foreach (var item in f)
+////{
+////    Console.WriteLine(item as Patient);
+////}
+
+////var d = (from p in dbCd.Persons where p is Doctor select p)
+////    .Include(p => p.ActualAdress).Include(p => p.AddInfoList).Include(p => (p as Doctor).Patient_Doctors).ToList();
+
+////foreach (var item in d)
+////{
+////    Console.WriteLine(item as Doctor);
+////}
+
+//var s = (from pd in dbCd.Patient_Physician select pd).Include(pd => pd.Patient)
+//    .Include(pd => pd.Doctor).Include(pd => pd.Patient.ActualAdress)
+//    .Include(pd=>pd.Doctor.ActualAdress).Include(pd=> pd.Patient.AddInfoList)
+//    .Include(pd=> pd.Doctor.AddInfoList).ToList();
+
+//foreach (var item in s)
 //{
-//    Console.WriteLine(item as Doctor);
+//    Console.WriteLine(item);
 //}
 
-var s = (from pd in dbCd.Patient_Physician select pd).Include(pd => pd.Patient)
-    .Include(pd => pd.Doctor).Include(pd => pd.Patient.ActualAdress)
-    .Include(pd=>pd.Doctor.ActualAdress).Include(pd=> pd.Patient.AddInfoList)
-    .Include(pd=> pd.Doctor.AddInfoList).ToList();
+#endregion
 
-foreach (var item in s)
-{
-    Console.WriteLine(item);
-}
+#region Migrations
+
+
 
 #endregion
 
